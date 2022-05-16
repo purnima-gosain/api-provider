@@ -12,6 +12,7 @@ Future<Pages> getData() async {
   if (response.statusCode == 200) {
     var userD = Pages.fromJson(response.data);
     userModel = userD.users;
+    loading = false;
     return userD;
   } else {
     throw Exception("Unable to load data");

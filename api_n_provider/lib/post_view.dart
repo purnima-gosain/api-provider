@@ -1,21 +1,22 @@
 import 'package:api_n_provider/home.dart';
+import 'package:api_n_provider/post_model.dart';
 import 'package:flutter/cupertino.dart';
 
 class UserPage extends ChangeNotifier {
-  Page? _pageModel;
+  Pages? _pageModel;
   bool loading = false;
-  Page? get pageModel {
+  Pages? get pageModel {
     return _pageModel;
   }
 
-  set postM(Page? pageM) {
+  set postM(Pages? pageM) {
     _pageModel = pageM;
   }
 
   fetchData() async {
     loading = true;
     notifyListeners();
-    _pageModel = (await getData()) as Page?;
+    _pageModel = (await getData());
     loading = false;
 
     notifyListeners();
